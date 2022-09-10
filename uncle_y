@@ -1,0 +1,19 @@
+import  java.util.Scanner;
+
+public class practice {
+    public static void main(String[] args){
+        Scanner num=new Scanner(System.in);
+        System.out.println("请输入你想知道第几个月的兔子总数量");
+        int month=num.nextInt();
+        int[] mon=new int[month];
+        if(month<3){
+            System.out.println("第"+month+"个月有1对兔子，共2只");
+        } else {
+            for (int i = 2; i < month; i++) {
+                mon[0] = mon[1] = 1;
+                mon[i] = mon[i - 1] + mon[i - 2];
+                System.out.printf("第%d个月有%d对兔子，共%d只兔子\n", i + 1, mon[i], 2 * mon[i]);
+            }
+        }
+    }
+}
